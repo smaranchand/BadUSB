@@ -1,5 +1,5 @@
 /**
- *This payload prints the entire device information when BadUSB is plucked.
+ *This payload prints the entire device information when BadUSB is plugged.
  *Developed By Smaran Chand | smaranchand@gmail.com
  */
 
